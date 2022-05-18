@@ -45,7 +45,7 @@ const addTask = function() {
 
 	//Null check
 	if (isEmpty(taskInput.value)) {
-		errorMessage.innerHTML = "error";
+		errorMessage.innerHTML = "Input cannot be empty!";
 		return;
 	} else if (!isEmpty(taskInput.value)) {
 		errorMessage.innerHTML = "";
