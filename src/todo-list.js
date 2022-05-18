@@ -112,7 +112,7 @@ const taskIncomplete = function() {
 	//Unstrike text and add to to do list
 	let listItem = this.parentNode;//li element
 	incompleteTaskHolder.appendChild(listItem);
-	
+
 	bindTaskEvents(listItem,taskCompleted);
 }
 
@@ -121,7 +121,7 @@ addButton.addEventListener("click",addTask);
 
 /* Assign the necessary functions to each li element. Edit, delete, checkbox. */
 const bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
-	console.log("bind list item events");
+	console.log("Assign functions to checkbox, edit button, and delete button.");
 
 	//select ListItems children
 	let checkBox = taskListItem.querySelector("input[type=checkbox]");
