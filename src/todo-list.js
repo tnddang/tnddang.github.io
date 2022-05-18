@@ -3,7 +3,8 @@ const taskInput				= document.getElementById("new-task");//Add a new task
 const addButton				= document.getElementsByTagName("button")[0];//'Add' button
 const incompleteTaskHolder	= document.getElementById("incomplete-tasks");//ul of incomplete-tasks
 const completedTasksHolder	= document.getElementById("completed-tasks");//ul completed-tasks
-
+const errorMessage			= document.getElementById("error");
+const ZERO					= 0;
 
 /* Create a new task item. */
 const createNewTaskElement=function(taskString){
@@ -35,27 +36,39 @@ const createNewTaskElement=function(taskString){
 	return listItem;
 }
 
+function isEmpty(input) {
+	return (!input || input.length === ZERO);
+}
+
 /* Add a task. */
 const addTask = function() {
-	console.log("Task added.");
-	
+
+	//Null check
+	if (isEmpty(taskInput.value)) {
+		errorMessage.innerHTML = "error";
+		return;
+	} else if (!isEmpty(taskInput.value)) {
+		errorMessage.innerHTML = "";
+	}
+
 	let listItem = createNewTaskElement(taskInput.value);
 
 	//Add listItem to incompleteTaskHolder
 	incompleteTaskHolder.appendChild(listItem);
 	bindTaskEvents(listItem, taskCompleted);
 
+	console.log("Task added.");
 	taskInput.value = "";
 }
 
 /* Edit an existing task. */
 const editTask = function() {
 
-	let listItem=this.parentNode;
+	let listItem = this.parentNode;
 
-	let editInput=listItem.querySelector('input[type=text]');
-	let label=listItem.querySelector("label");
-	let containsClass=listItem.classList.contains("editMode");
+	let editInput = listItem.querySelector('input[type=text]');
+	let label = listItem.querySelector("label");
+	let containsClass = listItem.classList.contains("editMode");
 		//If class of the parent is .editmode
 		if(containsClass){
 
@@ -126,11 +139,6 @@ const bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
 			checkBox.onchange = checkBoxEventHandler;
 }
 
-function validateNewListItem() {
-	if (editInput == null || editInput == "") {
-		console.log("empty");
-	}
-}
 /* Loop over list of incompleted tasks. */
 for (let i = 0; i < incompleteTaskHolder.children.length; i++) {
 
