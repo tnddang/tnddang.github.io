@@ -47,9 +47,9 @@ button:hover {
     color: #333;
   }
 
-  /* Heading */
-  h3,
-  label[for='new-task'] {
+/* Heading */
+h3,
+label[for='new-task'] {
     color: #2c3531;
     font-weight: 700;
     font-size: 16px;
@@ -57,8 +57,9 @@ button:hover {
     padding: 30px 0 10px;
     margin: 0;
     text-transform: uppercase;
-  }
-  input[type="text"] {
+}
+
+input[type="text"] {
     margin: 0;
     font-size: 18px;
     line-height: 18px;
@@ -75,18 +76,20 @@ button:hover {
   }
   
   /* New Task */
-  label[for='new-task'] {
+label[for='new-task'] {
     display: block;
     margin: 0 0 20px;
-  }
-  input#new-task {
+}
+
+input#new-task {
     float: left;
     width: 318px;
     height: auto;
-  }
-  p > button:hover {
+}
+
+p > button:hover {
     color: #0FC57C;
-  }
+}
   
 /* Task list */
 li {
@@ -113,8 +116,8 @@ li >  input[type="text"] {
     height: auto;
 }
 
-li > .delete:hover {
-    color: #CF2323;
+li > .delete:hover, #error {
+    color: #B50637;
 }
 
 li button {
