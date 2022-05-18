@@ -98,28 +98,26 @@ const deleteTask = function() {
 const taskCompleted = function() {
 		console.log("Task completed.");
 	
-	//Append the task list item to the #completed-tasks
+	//Strike through text and add to completed tasks
 	let listItem = this.parentNode;//li element
-
 	completedTasksHolder.appendChild(listItem);
+
 	bindTaskEvents(listItem, taskIncomplete);
 }
 
 /* Mark the task as incomplete. Checkbox event handler. */
 const taskIncomplete = function() {
-	console.log("Incomplete Task...");
+	console.log("Task incomplete.");
 
-	//Append the task list item to the #incomplete-tasks.
+	//Unstrike text and add to to do list
 	let listItem = this.parentNode;//li element
-
 	incompleteTaskHolder.appendChild(listItem);
+	
 	bindTaskEvents(listItem,taskCompleted);
 }
 
-
 /* Add task to list on click. */
 addButton.addEventListener("click",addTask);
-
 
 /* Assign the necessary functions to each li element. Edit, delete, checkbox. */
 const bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
